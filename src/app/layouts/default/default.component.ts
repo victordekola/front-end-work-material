@@ -11,11 +11,11 @@ export class DefaultComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   sideBarToggler() {
-    //console.log(this.sideBarOpen);
+
     this.sideBarOpen = !this.sideBarOpen;
   }
 
