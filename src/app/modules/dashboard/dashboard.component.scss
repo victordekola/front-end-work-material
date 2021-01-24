@@ -8,11 +8,11 @@ table {
   width: 100%;
 }
 
-th.mat-sort-header-sorted {
-  color: black;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }
 
-mat-form-field {
-  width: 100%;
-  background-color: #ff884d;
+td, th {
+  width: 25%;
 }

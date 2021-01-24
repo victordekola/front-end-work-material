@@ -2,93 +2,123 @@
   <app-widget-area [data]="bigChart"></app-widget-area>
 </div>
 
-<br>
+<br />
 
 <mat-divider></mat-divider>
 
-<br>
+<br />
 
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+<div
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  fxLayoutGap="20px"
+  class="stats-cards"
+>
   <mat-card fxFlex="25">
-      <app-widget-card label="New Users" total="12k" percentage="50" [data]="Cards"></app-widget-card>
+    <app-widget-card
+      label="New Users"
+      total="12k"
+      percentage="50"
+      [data]="Cards"
+    ></app-widget-card>
   </mat-card>
   <mat-card fxFlex="25">
-      <app-widget-card label="Users retention" total="10k" percentage="40" [data]="Cards"></app-widget-card>
+    <app-widget-card
+      label="Users retention"
+      total="10k"
+      percentage="40"
+      [data]="Cards"
+    ></app-widget-card>
   </mat-card>
   <mat-card fxFlex="25">
-      <app-widget-card label="Users engagement" total="8k" percentage="30" [data]="Cards"></app-widget-card>
+    <app-widget-card
+      label="Users engagement"
+      total="8k"
+      percentage="30"
+      [data]="Cards"
+    ></app-widget-card>
   </mat-card>
   <mat-card fxFlex="25">
-      <app-widget-card label="Referral" total="6k" percentage="20" [data]="Cards"></app-widget-card>
+    <app-widget-card
+      label="Referral"
+      total="6k"
+      percentage="20"
+      [data]="Cards"
+    ></app-widget-card>
   </mat-card>
 </div>
-
-<br>
-
+<br />
 <mat-divider></mat-divider>
-
-<br>
-
-
-  <!-- <mat-form-field floatLabel="never" color="primary">
-    <input class="toolbar-search" type="text" matInput placeholder="search">
-    <mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>
-  </mat-form-field> -->
-
+<br />
 
 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
 
+  <div fxFlex="100">
+    <div class="mat-elevation-z8 p-input-filled ">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+        class="p-col-12"
+          type="text"
+          (keyup)="applyFilter($event)"
+          pInputText
+          placeholder="Digite uma busca"
+          #input
 
-
-  <div fxFlex="60">
-    <div class="mat-elevation-z8">
-      <mat-card>
-          <mat-form-field>
-
-          </mat-form-field>
-      </mat-card>
+        />
+      </span>
     </div>
     <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
 
-
-
-      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <!-- Progress Column -->
+        <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
+          <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
         </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <!-- Color Column -->
+        <ng-container matColumnDef="color">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Color</th>
+          <td mat-cell *matCellDef="let row" [style.color]="row.color">
+            {{ row.color }}
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
   </div>
-<div fxFlex="40">
- <app-widget-pie [data]="pieChart"></app-widget-pie>
+  <div fxFlex="40">
+    <app-widget-pie [data]="pieChart"></app-widget-pie>
+  </div>
 </div>
-</div>
-<br>
-<br>
-<br>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

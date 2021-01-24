@@ -15,6 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { DashboardComponent } from './../../modules/dashboard/dashboard.component';
 import { PostsComponent } from './../../modules/posts/posts.component';
 import { DefaultComponent } from './default.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -31,10 +34,15 @@ import { DefaultComponent } from './default.component';
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
+    MatFormFieldModule,
+    MatIconModule,
     MatTableModule,
     MatSortModule,
-    MatFormFieldModule,
-    MatIconModule
+    InputMaskModule,
+    InputTextModule,
+
+    FormsModule
+
   ],
   providers: [
     DashboardService
