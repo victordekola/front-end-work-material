@@ -10,7 +10,6 @@ import { DefaultModule } from './layouts/default/default.module';
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -18,9 +17,7 @@ import { DefaultModule } from './layouts/default/default.module';
     BrowserAnimationsModule,
     DefaultModule,
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
