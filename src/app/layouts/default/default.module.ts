@@ -28,13 +28,17 @@ import { FuncionariosListComponent } from './../../admin/funcionarios/funcionari
 import { DashboardComponent } from './../../modules/dashboard/dashboard.component';
 import { PostsComponent } from './../../modules/posts/posts.component';
 import { DefaultComponent } from './default.component';
+import {FieldsetModule} from 'primeng/fieldset';
+import { FuncionariosFormComponent } from 'src/app/admin/funcionarios/funcionarios-form/funcionarios-form.component';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     PostsComponent,
-    FuncionariosListComponent
+    FuncionariosListComponent,
+    FuncionariosFormComponent
   ],
   imports: [
     CommonModule,
@@ -60,6 +64,8 @@ import { DefaultComponent } from './default.component';
     ProgressBarModule,
     HttpClientModule,
     ButtonModule,
+    FieldsetModule,
+    CardModule
     
   ],
   providers: [

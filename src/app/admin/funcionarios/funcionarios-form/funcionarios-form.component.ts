@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FuncionariosFormComponent implements OnInit {
 
+  cabecalho: string='';
   constructor() { }
 
   ngOnInit(): void {
+    this.cabecalho = 'Cadastro de Funcionarios';
   }
 
 }
